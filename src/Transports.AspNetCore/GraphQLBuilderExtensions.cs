@@ -52,5 +52,19 @@ namespace GraphQL.Server
 
             return builder;
         }
+
+
+        /// <summary>
+        /// Set up a delegate to create the UserContext for each GraphQL request
+        /// </summary>
+        /// <typeparam name="TFieldMiddleware"></typeparam>
+        /// <param name="builder">The GraphQL builder.</param>
+        /// <returns>The GraphQL builder.</returns>
+        public static IGraphQLBuilder AddFieldMiddleware<TFieldMiddleware>(this IGraphQLBuilder builder)
+            where TFieldMiddleware : class, IFieldMiddleware
+        {
+            builder.Services.AddTransient<IFieldMiddleware, TFieldMiddleware>();
+            return builder;
+        }
     }
 }

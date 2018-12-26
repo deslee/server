@@ -27,7 +27,8 @@ namespace GraphQL.Server.Transports.Subscriptions.Abstractions.Tests.Specs
                     new DocumentExecuter(),
                     Options.Create(new GraphQLOptions()),
                     Enumerable.Empty<IDocumentExecutionListener>(),
-                    Enumerable.Empty<IValidationRule>()
+                    Enumerable.Empty<IValidationRule>(),
+                    Enumerable.Empty<IFieldMiddleware>()
                     ),
                 new NullLoggerFactory());
 
